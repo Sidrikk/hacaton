@@ -1,0 +1,7 @@
+node_modules
+staticfiles
+*.pyc
+__pycache__
+.git
+.env
+*.sqlite3
