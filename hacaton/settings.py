@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -46,6 +46,9 @@ INSTALLED_APPS = [
 
 NPM_BIN_PATH = r"F:\nodejs\npm.cmd"
 TAILWIND_APP_NAME = 'theme'
+
+LOGIN_URL = 'accounts:login'
+LOGIN_REDIRECT_URL = 'accounts:dashboard'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,8 +87,12 @@ WSGI_APPLICATION = 'hacaton.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hacaton_db',
+        'USER': 'postgres',
+        'PASSWORD': '30386',  # Замените на пароль, который вы указали при установке PostgreSQL
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
